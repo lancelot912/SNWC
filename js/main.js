@@ -94,9 +94,9 @@ var map = L.map('map', {
   zoomHome.addTo(map);
 
 var baseLayers = {
+  "Streets": Streets,
   "Light": Light,
-  "Dark": Dark,
-  "Streets": Streets};
+  "Dark": Dark};
 
 L.control.layers(baseLayers).addTo(map);
   
