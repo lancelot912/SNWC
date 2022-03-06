@@ -325,8 +325,7 @@ function updateLegend(map, attribute) {
 
   //Create content for legend
   var year = attribute.split("_")[1];
-  var content = '<h5>Water level in ' + year + '</h5>' &
-  '<h5>(Drag slider left to right)</h5>';
+  var content = '<h5>Water level in ' + year + '</h5>';
 
 
   //Replace legend content
