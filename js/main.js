@@ -11,7 +11,7 @@ var map = L.map('map', {
       zoomControl: false
   });
   
-  map.setView([36.2924374, -114.7190577], 10);
+  map.setView([36.214747, -114.706481], 10);
   L.tileLayer(mapboxUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mapboxAtt}).addTo(map);
   
   //Custom zoom bar control that includes a Zoom Home function
@@ -57,7 +57,7 @@ var map = L.map('map', {
       },
   
       _zoomHome: function (e) {
-          map.setView([36.2924374, -114.7190577], 10);
+          map.setView([36.214747, -114.706481], 10);
       },
   
       _createButton: function (html, title, className, container, fn) {
