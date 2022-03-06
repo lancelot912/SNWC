@@ -86,7 +86,7 @@ button {
   }
   
   a, svg, #modalButton {
-	color: #ffcb00;
+	color: #0077be;
   }
   
   a:hover, #x {
@@ -105,7 +105,7 @@ button {
   }
   
   #temporal-legend {
-	color: #ffcb00;
+	color: #0077be;
 	font-weight: bold;
 	font-size: 1.5em;
   }
@@ -127,7 +127,7 @@ button {
 	width: 250px;
 	height: 250px;
 	background-color: #8f8e8e;
-	border: solid #ffcb00 2px;
+	border: solid #0077be 2px;
 	padding: 10px;
 	font-size: 1em;
   }
@@ -162,7 +162,7 @@ button {
 	width: 20px;
 	height: 20px;
 	border-radius: 25%;
-	background: #ffcb00;
+	background: #0077be;
 	cursor: pointer;
   }
   
