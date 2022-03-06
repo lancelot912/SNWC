@@ -57,7 +57,7 @@ var map = L.map('map', {
       },
   
       _zoomHome: function (e) {
-          map.setView([34.415, -112.022], 5);
+          map.setView([36.1388677, -114.7060955], 10);
       },
   
       _createButton: function (html, title, className, container, fn) {
