@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	
+	<title>Southern Nevada Water Crisis</title>
+
+	<link rel="shortcut icon" href="assets/images/favicon.png">
+	
+	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
+	<link rel="stylesheet" href="assets/css/main.css">
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="assets/js/html5shiv.js"></script>
+	<script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body class="home">
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
+		<div class="container">
+			<div class="navbar-header">
+				<!-- Button for smallest screens -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				<a class="navbar-brand" href="index.html"><img src="assets/images/banner4.png" alt="Southern Nevada Water Crisis"></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li class="active"><a href="index.html">Home</a></li>
+					<li><a href="history.html">Lake Mead History</a></li>
+					<li><a href="poster.html">Infographic</a></li>	
+					<li><a href="report.html">Report Water Waste</a></li>
+					<li><a href="about.html">About</a></li>					
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div> 
+	<!-- /.navbar -->
+
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container">
+		<div class="row">
+			<header class="page-header">
+				<h1 class="page-title">Report Water Waste</h1>
+			</header>
+			
+			<div class="sidebar col-xs-3">
+
+				<!-- Tab Navis-->
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#welcome" data-toggle="tab"> Water Waste Report Tool</a></li>
+					<li><a href="#query_observation" data-toggle="tab"> Query Report</a></li>
+				</ul>
+	
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="welcome">
+						<form id = "create_observation_form">
+							<div><label>Date Reported</label><input class="form-control" placeholder="mm/dd/yyyy" name="date" autocomplete="off"></div>
+							<div><label>Water Waste</label>
+								  <select class="form-control" name="item">
+									<option value="">Select Type</option>
+									<option value="Hydrant">Hydrant</option>
+									<option value="Meter">Meter</option>
+									<option value="Pipe">Pipe</option>
+									<option value="Valve">Valve</option>
+									<option value="Sprinkler">Sprinkler</option>
+									<option value="Contaminated">Contaminated</option>
+									<option value="Other">Other</option>
+								</select>
+							</div>
+	
+							<div><label>Characteristics</label>
+									<select class="form-control" name="report">
+									<option value="">Select Description</option>
+									<option value="Leak">Leak</option>
+									<option value="Broken">Broken</option>
+									<option value="Flooding">Flooding</option>
+									<option value="Missing Piece">Missing Piece</option>
+								</select>
+							</div>
+
+							<div><label>Details</label><input class="form-control" id="details" placeholder="Describe the water waste seen" name="details" maxlength="500"></div>
+							<div><label>Reported by:</label><input class="form-control" placeholder="Leave a name or stay anonymous" name="recorded_by"></div>
+							<div><label>Address</label><input class="form-control" id="autocomplete" placeholder="Address"></div>
+							<div class="button_div"><button type="submit" class="btn btn-info" id="report_submit_btn">Submit Water Waste</button></div>
+						</form>
+						<br>
+						<br>
+						<div id="welcomeText"><img src="assets/images/logo1.png" height="80%" width="80%"></div>
+					</div>
+
+					<!-- Create Observation Tab Panel -->
+					<div class="tab-pane" id="query_observation">
+						<form id = "query_observation_form">
+								<div><label>Water Waste</label>
+								<select class="form-control" name="item">
+									<option value="">Select Type</option>
+									<option value="Hydrant">Hydrant</option>
+									<option value="Meter">Meter</option>
+									<option value="Pipe">Pipe</option>
+									<option value="Valve">Valve</option>
+									<option value="Sprinkler">Sprinkler</option>
+									<option value="Contaminated">Contaminated</option>
+									<option value="Other">Other</option>
+								</select>
+								</div>
+
+								<div><label>Characteristics</label>
+								<select class="form-control" name="report">
+									<option value="">Select Description</option>
+									<option value="Leak">Leak</option>
+									<option value="Broken">Broken</option>
+									<option value="Flooding">Flooding</option>
+									<option value="Missing Piece">Missing Piece</option>
+								</select>
+								</div>
+							<div class="button_div"><button type="submit" class="btn btn-info" id="report_submit_btn">Submit</button></div>
+						</form>
+						<br>
+						<br>
+						<div id="create_observation"><img src="assets/images/logo1.png" height="80%" width="80%"></div>
+					</div>
+				</div>
+			</div>
+			<div id="map-canvas" class="col-xs-9"></div>
+		</div>
+	</div>
+
+	<footer id="footer" class="top-space">
+
+		<div class="footer1">
+			<div class="container">
+		
+			</div>
+		</div>
+
+	</footer>		
+		
+
+
+
+
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="assets/js/headroom.min.js"></script>
+	<script src="assets/js/jQuery.headroom.min.js"></script>
+	<script src="assets/js/template.js"></script>
+	<script src="assets/js/loadform.js"></script>
+	<script src="assets/js/loadmap.js"></script>
+	<script src="assets/js/mainform.js"></script>
+	
+	
+
+</body>
+</html>
