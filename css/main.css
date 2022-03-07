@@ -113,7 +113,7 @@ button {
   #attribute-legend {
 	font-weight: bold;
 	font-size: 20px;
-	color: #000000;
+	color: #0077be;
   }
   
   .sequence-control-container {
@@ -126,7 +126,7 @@ button {
   .legend-control-container {
 	width: 250px;
 	height: 250px;
-	background-color: #8f8e8e;
+	background-color: #e6e6e6;
 	border: solid #0077be 2px;
 	padding: 10px;
 	font-size: 1em;
@@ -151,10 +151,7 @@ button {
 	width: 20px;
 	height: 20px;
 	border-radius: 25%;
-	background-image: url(images/favicon.png);
-	background-size: contain;
-	background-position: center center;
-	background-repeat: no-repeat;
+	background: #0077be;
 	cursor: pointer;
   }
   
