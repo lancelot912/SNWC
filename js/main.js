@@ -1,90 +1,26 @@
-var mapboxAtt = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    mapboxUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGFuY2VsYXphcnRlIiwiYSI6ImNrcDIyZHN4bzAzZTEydm8yc24zeHNodTcifQ.ydwAELOsAYya_MiJNar3ow';
+var imagery = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGFuY2VsYXphcnRlIiwiYSI6ImNrcDIyZHN4bzAzZTEydm8yc24zeHNodTcifQ.ydwAELOsAYya_MiJNar3ow', {
+    id: 'mapbox.satellite',
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
+});
+var light = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGFuY2VsYXphcnRlIiwiYSI6ImNrcDIyZHN4bzAzZTEydm8yc24zeHNodTcifQ.ydwAELOsAYya_MiJNar3ow', {
+    id: 'mapbox.light',
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
+});
+var outdoors = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/outdoors-v11/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibGFuY2VsYXphcnRlIiwiYSI6ImNrcDIyZHN4bzAzZTEydm8yc24zeHNodTcifQ.ydwAELOsAYya_MiJNar3ow', {
+    id: 'mapbox.outdoors',
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
+});
 
-var Light = L.tileLayer(mapboxUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mapboxAtt}),
-    Dark = L.tileLayer(mapboxUrl, {id: 'mapbox/dark-v9', tileSize: 512, zoomOffset: -1, attribution: mapboxAtt}),    
-    Streets = L.tileLayer(mapboxUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mapboxAtt});
-
-
-var lm2012 = 
-    {
-    name: "2012",
-    layer: L.geoJson(),
-    url: "https://raw.githubusercontent.com/lancelot912/SNWC/main/data/2012.js"
-};
-
-var lm2013 =
-    {
-    name: "2013",
-    layer: L.geoJson(),
-    url: "https://raw.githubusercontent.com/lancelot912/SNWC/main/data/2013.js"
-};
-
-var lm2014 =
-    {
-    name: "2014",
-    layer: L.geoJson(),
-    url: "https://raw.githubusercontent.com/lancelot912/SNWC/main/data/2014.js"
-};
-
-var lm2015 = 
-    {
-    name: "2015",
-    layer: L.geoJson(),
-    url: "https://raw.githubusercontent.com/lancelot912/SNWC/main/data/2015.js"
-};
-
-var lm2016 =
-    {
-    name: "2016",
-    layer: L.geoJson(),
-    url: "https://raw.githubusercontent.com/lancelot912/SNWC/main/data/2016.js"
-};
-
-var lm2017 = 
-    {
-    name: "2017",
-    layer: L.geoJson(),
-    url: "https://raw.githubusercontent.com/lancelot912/SNWC/main/data/2017.js"
-};
-
-var lm2018 =
-    {
-    name: "2018",
-    layer: L.geoJson(),
-    url: "https://raw.githubusercontent.com/lancelot912/SNWC/main/data/2018.js"
-};
-
-var lm2019 =
-    {
-    name: "2019",
-    layer: L.geoJson(),
-    url: "https://raw.githubusercontent.com/lancelot912/SNWC/main/data/2019.js"
-};
-
-var lm2020 = 
-    {
-    name: "2020",
-    layer: L.geoJson(),
-    url: "https://raw.githubusercontent.com/lancelot912/SNWC/main/data/2020.js"
-};
-
-var lm2021 = 
-    {
-    name: "2021",
-    layer: L.geoJson(),
-    url: "https://raw.githubusercontent.com/lancelot912/SNWC/main/data/2021.js"
-};
 
 var map = L.map('map', {
-      zoomControl: false
-  });
-  
-  map.setView([36.25824, -114.51417], 10);
-  L.tileLayer(mapboxUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mapboxAtt}).addTo(map);
-  
+    zoomControl: false,
+    center: [36.25824, -114.51417],
+    zoom: 10,
+    minZoom: 3,
+    maxZoom: 18,
+    layers: [imagery]
+    });
+   
   //Custom zoom bar control that includes a Zoom Home function
   L.Control.zoomHome = L.Control.extend({
       options: {
@@ -164,15 +100,111 @@ var map = L.map('map', {
   var zoomHome = new L.Control.zoomHome();
   zoomHome.addTo(map);
 
-var baseLayers = {
-  "Streets": Streets,
-  "Light": Light,
-  "Dark": Dark};
-
-var overlays = {
-  lm2012, lm2013, lm2014, lm2015, lm2016, lm2017, lm2018, lm2019, lm2020, lm2021
+var baseMaps = {
+    "Color": outdoors,
+    "Light": light,
+    "Satellite": imagery
 }
 
-var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
-map.addControl(layerControl);
+  var sqlQuery = "SELECT * FROM mlazarte.lakemead_2012 WHERE lm_elev = '1120'";
+   
+  var high = $.getJSON("https://raw.githubusercontent.com/lancelot912/SNWC/main/data/lakemeadhigh.geojson", function (data) {
+      high = L.geoJson(data, {
+          onEachFeature: function (feature, layer) {
+              layer.bindPopup('<p><b> Year: 1983 </b><br/><em><br/> '+ '<b> Depth: 1220 ft.</b><br/><em>');
+              layer.on({
+                  mouseover: function (e) {
+                      layer.setStyle({
+                          weight: 1,
+                          color: "#00FFFF",
+                          opacity: 1,
+                      });
+                      },
+                  mouseout: function (e) {
+                      high.resetStyle(e.target);
+                  },
+              });
+          },
+          style: stylehigh,
+      }).addTo(map);
+  });
+  
+  
+  function stylehigh(feature) {
+      return {
+          "color": 'blue',
+          "fillColor": 'blue',
+          "weight": 2
+      };
+  }
+  
+  /* var medium = $.getJSON("https://mlazarte.carto.com/api/v2/sql?format=GeoJSON&q=" + sqlQuery, function (data) {
+      medium = L.geoJson(data, {
+          onEachFeature: function (feature, layer) {
+              layer.bindPopup('<p><b> Year: 2012 </b><br/><em><br/> '+ '<b> Depth: 1120 ft.</b><br/><em>');
+              layer.on({
+                  mouseover: function (e) {
+                      layer.setStyle({
+                          weight: 1,
+                          color: "#00FFFF",
+                          opacity: 1,
+                      });
+                      },
+                  mouseout: function (e) {
+                      medium.resetStyle(e.target);
+                  },
+              });
+          },
+          style: stylemedium,
+      });
+  });
+  
+  
+   function stylemedium(feature) {
+      return {
+          "color": 'orange',
+          "fillColor": 'orange',
+          "weight": 2
+      };
+  } */
+  
+  
+  var low = $.getJSON("https://raw.githubusercontent.com/lancelot912/SNWC/main/data/lakemeadlow.geojson", function (data) {
+      low = L.geoJson(data, {
+          onEachFeature: function (feature, layer) {
+              layer.bindPopup('<p><b> Year: 2021 </b><br/><em><br/> '+ '<b> Depth: 1066 ft.</b><br/><em>');
+              layer.on({
+                  mouseover: function (e) {
+                      layer.setStyle({
+                          weight: 1,
+                          color: "#00FFFF",
+                          opacity: 1,
+                      });
+                      },
+                  mouseout: function (e) {
+                      low.resetStyle(e.target);
+                  },
+              });
+          },
+          style: stylelow,
+      }).addTo(map);
+  });
+  
+  
+  function stylelow(feature) {
+      return {
+          "color": 'red',
+          "fillColor": 'red',
+          "weight": 2
+      };
+  }
+  
+  var overlays = {
+          "Full Depth": high,
+          "Current": low
+  }; 
+  
+
+L.control.layers(baseMaps).addTo(map);
+
   
