@@ -18,7 +18,7 @@ var map = L.map('map', {
     zoom: 10,
     minZoom: 3,
     maxZoom: 18,
-    layers: [imagery]
+    layers: [light]
     });
    
   //Custom zoom bar control that includes a Zoom Home function
