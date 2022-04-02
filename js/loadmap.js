@@ -112,7 +112,7 @@ function mapInitialization(observations) {
     });
     //The MarkerClusterer needs to be below the Jquery $.each
     var clusterOptions = {
-        imagePath:"img/m",
+        imagePath:"images/m",
         zoomOnClick: true,
         maxZoom: 9
     };
@@ -125,7 +125,7 @@ function mapInitialization(observations) {
 
 function initAutocomplete() {
     // Create the autocomplete object
-    autocomplete = new google.maps.places.Autocomplete(document
+    autocomplete = new google.maps.places.autocomplete(document
         .getElementById('autocomplete'));
 
     // When the user selects an address from the dropdown, show the place selected
